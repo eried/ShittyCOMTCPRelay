@@ -1,0 +1,10 @@
+C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\bin\Debug\COM2TCP.exe.config
+C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\bin\Debug\COM2TCP.exe
+C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\bin\Debug\COM2TCP.pdb
+C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.csprojAssemblyReference.cache
+C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.FormMain.resources
+C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.Properties.Resources.resources
+C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.csproj.GenerateResource.cache
+C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.csproj.CoreCompileInputs.cache
+C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.exe
+C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.pdb
