@@ -24,8 +24,7 @@ namespace COM2TCP
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            UpdatePorts();
-            
+            UpdateGui(true);
         }
 
         private void UpdatePorts()
@@ -41,29 +40,45 @@ namespace COM2TCP
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            buttonStart.Enabled = false;
+            UpdateGui(false);
             backgroundWorkerSync.RunWorkerAsync(new TaskParams() { Host = textBoxHost.Text, ComPort = comboBoxPort.Text, Port = (int)numericUpDownPort.Value});
+        }
+
+        private void UpdateGui(bool v)
+        {
+            UpdatePorts();
+            buttonStop.Enabled = !v;
+            buttonStart.Enabled = v;
+            groupBoxRemote.Enabled = v;
+            groupBoxLocal.Enabled = v;
         }
 
         private void backgroundWorkerSync_DoWork(object sender, DoWorkEventArgs e)
         {
-            var t = e.Argument as TaskParams;
-            backgroundWorkerSync.ReportProgress(0);
-
-            client = new TcpClient();
-            serialPortInput.PortName = t.ComPort;
-            serialPortInput.Open();
-            client.Connect(t.Host, t.Port);
-            serialPortInput.DataReceived += SerialPortInput_DataReceived;
-
-            while(serialPortInput.IsOpen)
+            try
             {
+                var t = e.Argument as TaskParams;
                 backgroundWorkerSync.ReportProgress(0);
-                var b = new byte[1];
-                client.Client.Receive(b);
-                serialPortInput.Write(b, 0, b.Length);
+
+                client = new TcpClient();
+                serialPortInput.PortName = t.ComPort;
+                serialPortInput.Open();
+                client.Connect(t.Host, t.Port);
+                serialPortInput.DataReceived += SerialPortInput_DataReceived;
+
+                while (!e.Cancel && serialPortInput.IsOpen)
+                {
+                    backgroundWorkerSync.ReportProgress(0);
+                    var b = new byte[1];
+                    client.Client.Receive(b);
+                    serialPortInput.Write(b, 0, b.Length);
+                }
+            }catch (Exception ex)
+            {
+                backgroundWorkerSync.ReportProgress(-3, ex.Message);
             }
 
+            Thread.Sleep(400); // Just to avoid making the controls "blink" on immediate errors
         }
 
         private void SerialPortInput_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -88,6 +103,10 @@ namespace COM2TCP
                     toolStripStatusLabelStatus.Text = "Terminated";
                     break;
 
+                case -3:
+                    toolStripStatusLabelStatus.Text = "Error: " + e.UserState as String;
+                    break;
+
                 default:
                     toolStripStatusLabelStatus.Text = "Rem: " + e.ProgressPercentage;
                     break;
@@ -96,14 +115,18 @@ namespace COM2TCP
 
         private void backgroundWorkerSync_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            backgroundWorkerSync.ReportProgress(-2);
-            buttonStart.Enabled = true;
+            UpdateGui(true);
         }
 
         private void buttonSerial_Click(object sender, EventArgs e)
         {
             serialPortInput.PortName = comboBoxPort.Text;
             serialPortInput.Open();
+        }
+
+        private void buttonStop_Click(object sender, EventArgs e)
+        {
+            backgroundWorkerSync.CancelAsync();
         }
     }
 

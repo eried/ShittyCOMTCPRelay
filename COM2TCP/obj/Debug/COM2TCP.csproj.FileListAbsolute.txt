@@ -8,3 +8,13 @@ C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.csproj.Gene
 C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.csproj.CoreCompileInputs.cache
 C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.exe
 C:\Users\erwin\Desktop\game_sender\COM2TCP\COM2TCP\obj\Debug\COM2TCP.pdb
+D:\GitHub\ShittyCOMTCPRelay\COM2TCP\bin\Debug\COM2TCP.exe.config
+D:\GitHub\ShittyCOMTCPRelay\COM2TCP\bin\Debug\COM2TCP.exe
+D:\GitHub\ShittyCOMTCPRelay\COM2TCP\bin\Debug\COM2TCP.pdb
+D:\GitHub\ShittyCOMTCPRelay\COM2TCP\obj\Debug\COM2TCP.csprojAssemblyReference.cache
+D:\GitHub\ShittyCOMTCPRelay\COM2TCP\obj\Debug\COM2TCP.FormMain.resources
+D:\GitHub\ShittyCOMTCPRelay\COM2TCP\obj\Debug\COM2TCP.Properties.Resources.resources
+D:\GitHub\ShittyCOMTCPRelay\COM2TCP\obj\Debug\COM2TCP.csproj.GenerateResource.cache
+D:\GitHub\ShittyCOMTCPRelay\COM2TCP\obj\Debug\COM2TCP.csproj.CoreCompileInputs.cache
+D:\GitHub\ShittyCOMTCPRelay\COM2TCP\obj\Debug\COM2TCP.exe
+D:\GitHub\ShittyCOMTCPRelay\COM2TCP\obj\Debug\COM2TCP.pdb
